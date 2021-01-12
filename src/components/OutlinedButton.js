@@ -12,13 +12,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function OutlinedButton() {
+function OutlinedButton({ children }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Button variant="outlined" color="primary">
-        Nominate
+        {children}
       </Button>
     </div>
   );

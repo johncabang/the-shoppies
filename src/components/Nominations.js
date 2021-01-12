@@ -5,7 +5,7 @@ function Nominations() {
   return (
     <div>
       <h3>Nominations</h3>
-      <OutlinedButton />
+      <OutlinedButton>Remove</OutlinedButton>
     </div>
   );
 }

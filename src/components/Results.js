@@ -1,6 +1,8 @@
 import React from "react";
 import OutlinedButton from "./OutlinedButton";
 
+import "./Results.css";
+
 function Results(props) {
   const { results } = props;
 
@@ -8,9 +10,14 @@ function Results(props) {
     <div>
       <h3>Results</h3>
       {results.map((result) => (
-        <div className="results">
+        <div className="results__component">
           <img src={result.Poster} alt="movie" />
-          <OutlinedButton />
+          <h4>
+            {result.Title} ({result.Year})
+          </h4>
+
+          <OutlinedButton>Nominate</OutlinedButton>
+          <br />
         </div>
       ))}
     </div>

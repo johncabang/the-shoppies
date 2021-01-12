@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SearchBar() {
+function SearchBar(props) {
   const classes = useStyles();
 
   return (
@@ -25,6 +25,8 @@ function SearchBar() {
         variant="outlined"
         size="small"
         color="secondary"
+        value={props.value}
+        onChange={(event) => props.setSearchTerm(event.target.value)}
         InputProps={{
           style: {
             color: "white",
