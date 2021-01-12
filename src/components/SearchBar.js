@@ -7,9 +7,9 @@ import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    "& > *": {
+    "& > * ": {
       margin: theme.spacing(1),
-      width: "25ch",
+      width: "30ch",
     },
   },
 }));
@@ -24,7 +24,11 @@ function SearchBar() {
         label="Search Movies"
         variant="outlined"
         size="small"
+        color="secondary"
         InputProps={{
+          style: {
+            color: "white",
+          },
           startAdornment: (
             <InputAdornment position="start">
               <SearchIcon />
