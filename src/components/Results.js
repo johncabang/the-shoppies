@@ -2,23 +2,26 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
   root: {
-    minHeight: 600,
-    background: "black",
-    color: "white",
+    minHeight: 775,
+    background: "#012E25",
+    color: "#fff",
     padding: 40,
-    borderRadius: 0,
-    margin: 0,
+    borderRadius: 10,
+    display: "flex",
+    flexDirection: "column",
   },
   title: {
     fontSize: 18,
   },
-  pos: {
+  year: {
     marginBottom: 12,
     color: "white",
   },
@@ -35,33 +38,38 @@ function Results(props) {
 
   function SearchResults() {
     return (
-      <CardContent>
+      <CardContent elevation={6}>
         {props.results.map((result) => {
           const storedMovie = props.nominees.find(
             (stored) => stored.imdbID === result.imdbID
           );
           return (
             <div className="results__movie">
-              {/* <img src={result.Poster} alt="movie" className={classes.images} /> */}
+              <CardMedia image={result.Poster} />
+              <li key={result.id} style={{ listStyle: "none" }}>
+                <Typography className={classes.title}>
+                  {result.Title}
+                </Typography>
+                <Typography className={classes.year}>
+                  ({result.Year})
+                </Typography>
 
-              <Typography className={classes.title}>{result.Title}</Typography>
-              <Typography className={classes.pos}>({result.Year})</Typography>
-
-              <CardActions className={classes.actions}>
-                <Button
-                  onClick={() => props.handleNominatedClick(result)}
-                  variant="outlined"
-                  color="primary"
-                  disabled={
-                    storedMovie || props.nominees.length === 5 ? true : false
-                  }
-                  style={{ textTransform: "none", borderRadius: "0" }}
-                >
-                  {storedMovie ? "Nominated" : "Nominate"}
-                </Button>
-              </CardActions>
-              <br />
-              <br />
+                <CardActions className={classes.actions}>
+                  <Button
+                    onClick={() => props.handleNominatedClick(result)}
+                    variant="outlined"
+                    color="primary"
+                    disabled={
+                      storedMovie || props.nominees.length === 5 ? true : false
+                    }
+                    style={{ textTransform: "none", borderRadius: "0" }}
+                  >
+                    {storedMovie ? "Nominated" : "Nominate"}
+                  </Button>
+                </CardActions>
+                <br />
+                <br />
+              </li>
             </div>
           );
         })}

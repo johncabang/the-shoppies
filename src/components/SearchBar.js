@@ -7,24 +7,26 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: "5vh",
-    paddingBottom: "5vh",
+    paddingBottom: "15vh",
+    paddingLeft: "15%",
+    paddingRight: "15%",
     "& label.Mui-focused": {
       color: "secondary",
     },
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        borderColor: "white",
+        borderColor: "#fff",
       },
       "&:hover fieldset": {
-        borderColor: "lightgray",
+        borderColor: "#fff",
       },
       "&.Mui-focused fieldset": {
-        borderColor: "secondary",
+        borderColor: "#fff",
       },
     },
   },
   search: {
-    // width: "100%",
+    width: "100%",
   },
 }));
 
@@ -51,7 +53,6 @@ function SearchBar(props) {
             }}
             InputLabelProps={{
               style: { color: "#fff" },
-              shrink: true,
             }}
           />
         </form>

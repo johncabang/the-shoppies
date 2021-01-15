@@ -1,14 +1,15 @@
 import { useState, useEffect } from "react";
-import Results from "./components/Results";
-import NomineesList from "./components/NomineesList";
 
-import SearchBar from "./components/SearchBar";
+// import Heading from "./components/Heading";
+// import SearchBar from "./components/SearchBar";
+import Results from "./components/Results";
+import Hero from "./components/Hero";
+import NomineesList from "./components/NomineesList";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
 
 import axios from "axios";
-import Heading from "./components/Heading";
 
 const theme = createMuiTheme({
   palette: {
@@ -25,18 +26,20 @@ const theme = createMuiTheme({
       contrastText: "#000",
     },
     action: {
-      disabledBackground: "#302A2E",
-      disabled: "#302A2E",
+      disabledBackground: "#000",
+      disabled: "#000",
     },
   },
 });
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "#121212",
-    color: "#fff",
-    paddingLeft: "10%",
-    paddingRight: "10%",
+    background: "#FAF7ED",
+    color: "#014C3E",
+    paddingTop: "3%",
+    paddingLeft: "15%",
+    paddingRight: "15%",
+    paddingBottom: "10%",
   },
 }));
 
@@ -76,7 +79,7 @@ function App() {
 
   function FormRow() {
     return (
-      <Grid container spacing={6}>
+      <Grid container spacing={4} className={classes.root}>
         <Grid item xs={12} sm={12} md={6}>
           <Results
             searchTerm={searchTerm}
@@ -97,9 +100,8 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className={classes.root}>
-        <Heading heading="The Shoppies" />
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <div>
+        <Hero searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         <FormRow />
       </div>
     </ThemeProvider>

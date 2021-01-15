@@ -1,21 +1,14 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles({
-  root: {
-    color: "white",
-    paddingTop: "5vh",
-  },
-});
-
 function Heading(props) {
-  const classes = useStyles();
-
   return (
-    <Grid className={classes.root} container xs={12}>
-      <Typography variant="h5" component="h2">
+    <Grid container item xs={12}>
+      <Typography
+        variant="h4"
+        style={{ color: "#fff", paddingTop: "10vh", paddingLeft: "15%" }}
+      >
         {props.heading}
       </Typography>
     </Grid>
