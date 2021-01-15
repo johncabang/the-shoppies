@@ -4,20 +4,19 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
   root: {
-    width: 350,
-    minWidth: 550,
     minHeight: 600,
     background: "black",
     color: "white",
-    paddingTop: 20,
     padding: 40,
     borderRadius: 0,
+    margin: 0,
   },
   title: {
-    fontSize: 12,
+    fontSize: 18,
   },
   pos: {
     marginBottom: 12,
@@ -32,76 +31,59 @@ const useStyles = makeStyles({
 });
 
 function Results(props) {
-  const NominateComponent = props.nominateComponent;
-
   const classes = useStyles();
+
+  function SearchResults() {
+    return (
+      <CardContent>
+        {props.results.map((result) => {
+          const storedMovie = props.nominees.find(
+            (stored) => stored.imdbID === result.imdbID
+          );
+          return (
+            <div className="results__movie">
+              {/* <img src={result.Poster} alt="movie" className={classes.images} /> */}
+
+              <Typography className={classes.title}>{result.Title}</Typography>
+              <Typography className={classes.pos}>({result.Year})</Typography>
+
+              <CardActions className={classes.actions}>
+                <Button
+                  onClick={() => props.handleNominatedClick(result)}
+                  variant="outlined"
+                  color="primary"
+                  disabled={
+                    storedMovie || props.nominees.length === 5 ? true : false
+                  }
+                  style={{ textTransform: "none", borderRadius: "0" }}
+                >
+                  {storedMovie ? "Nominated" : "Nominate"}
+                </Button>
+              </CardActions>
+              <br />
+              <br />
+            </div>
+          );
+        })}
+      </CardContent>
+    );
+  }
 
   return (
     <Card className={classes.root} variant="outlined">
       {props.searchTerm ? (
-        <h2>Results for "{props.searchTerm}"</h2>
+        <Typography variant="h5">Results for "{props.searchTerm}"</Typography>
       ) : (
-        <h2>Movies</h2>
+        <Typography variant="h5">Movies</Typography>
       )}
 
-      {/* {props.searchTerm && !result.length ? (
-        <p className="status-text">No Results Found</p>
-      ) : ( */}
-      <CardContent>
-        {props.results.map((result) => (
-          <div className="results__movie">
-            {/* <img src={result.Poster} alt="movie" className={classes.images} /> */}
-
-            <Typography component="h2">{result.Title}</Typography>
-            <Typography className={classes.pos}>({result.Year})</Typography>
-
-            <div
-              className="results__nominate"
-              onClick={() => props.handleNominatedClick(result)}
-            >
-              <CardActions className={classes.actions}>
-                <NominateComponent />
-              </CardActions>
-              <br />
-            </div>
-            <br />
-          </div>
-        ))}
-      </CardContent>
-      {/* )} */}
+      {props.searchTerm && !SearchResults ? (
+        <Typography variant="h5">No Results Found</Typography>
+      ) : (
+        <SearchResults />
+      )}
     </Card>
   );
 }
 
 export default Results;
-
-//       <Grid item xs={12}>
-// {props.results.map((result) => (
-//   <div className="results__movie">
-//     <img src={result.Poster} alt="movie" />
-//     <h4>
-//       {result.Title} ({result.Year})
-//     </h4>
-//     <div
-//       className="results__nominate"
-//       onClick={() => props.handleNominatedClick(result)}
-//     >
-//       <NominateComponent />
-//     </div>
-//     <br />
-//   </div>
-// ))}
-//       </Grid>
-//     </div>
-//   );
-// }
-
-// return (
-//   <div className={classes.root}>
-//     <Grid container spacing={4}>
-//       <Grid container item xs={12} spacing={0} justify="space-evenly">
-//         <FormRow />
-//       </Grid>
-//     </Grid>
-//   </div>
-// );

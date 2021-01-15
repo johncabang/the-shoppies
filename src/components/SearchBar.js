@@ -6,9 +6,8 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingLeft: "20vh",
+    paddingTop: "5vh",
     paddingBottom: "5vh",
-    width: "100vh",
     "& label.Mui-focused": {
       color: "secondary",
     },
@@ -24,33 +23,39 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  search: {
+    // width: "100%",
+  },
 }));
 
 function SearchBar(props) {
   const classes = useStyles();
 
   return (
-    <Grid container xs={12}>
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField
-          id="outlined-secondary"
-          label="Search Movies"
-          variant="outlined"
-          size="small"
-          value={props.value}
-          fullWidth
-          onChange={(event) => props.setSearchTerm(event.target.value)}
-          InputProps={{
-            style: {
-              color: "#fff",
-            },
-          }}
-          InputLabelProps={{
-            style: { color: "#fff" },
-            shrink: true,
-          }}
-        />
-      </form>
+    <Grid container spacing={0}>
+      <Grid item xs={12} sm={12}>
+        <form className={classes.root} noValidate autoComplete="off">
+          <TextField
+            className={classes.search}
+            id="outlined-secondary"
+            label="Search Movie Title"
+            variant="outlined"
+            size="small"
+            value={props.value}
+            fullWidth
+            onChange={(event) => props.setSearchTerm(event.target.value)}
+            InputProps={{
+              style: {
+                color: "#fff",
+              },
+            }}
+            InputLabelProps={{
+              style: { color: "#fff" },
+              shrink: true,
+            }}
+          />
+        </form>
+      </Grid>
     </Grid>
   );
 }

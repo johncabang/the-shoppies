@@ -4,20 +4,18 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles({
   root: {
-    width: 350,
-    minWidth: 550,
     minHeight: 600,
     background: "black",
     color: "white",
-    paddingTop: 20,
     padding: 40,
     borderRadius: 0,
   },
   title: {
-    fontSize: 14,
+    fontSize: 18,
   },
   pos: {
     marginBottom: 12,
@@ -29,33 +27,30 @@ const useStyles = makeStyles({
 });
 
 function NomineesList(props) {
-  const NominateComponent = props.nominateComponent;
-
   const classes = useStyles();
 
   return (
     <Card className={classes.root} variant="outlined">
-      {/* <Heading heading="Nominees" /> */}
-      <h2>Nominees</h2>
+      <Typography variant="h5">Nominees</Typography>
 
       <CardContent>
         {props.results.map((result) => (
           <div className="results__movie">
-            <Typography variant="h5" component="h2">
-              {result.Title}
-            </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              ({result.Year})
-            </Typography>
-            <div
-              className="results__nominate"
-              onClick={() => props.handleNominatedClick(result)}
-            >
-              <CardActions className={classes.actions}>
-                <NominateComponent />
-              </CardActions>
-              <br />
-            </div>
+            {/* <img src={result.Poster} alt="movie" className={classes.images} /> */}
+
+            <Typography className={classes.title}>{result.Title}</Typography>
+            <Typography className={classes.pos}>({result.Year})</Typography>
+            <CardActions className={classes.actions}>
+              <Button
+                onClick={() => props.handleNominatedClick(result)}
+                variant="outlined"
+                color="primary"
+                style={{ textTransform: "none", borderRadius: "0" }}
+              >
+                Remove
+              </Button>
+            </CardActions>
+            <br />
             <br />
           </div>
         ))}
