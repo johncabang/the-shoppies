@@ -2,34 +2,40 @@ import React from "react";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
+// import CardMedia from "@material-ui/core/CardMedia";
 
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles({
   root: {
     minHeight: 775,
     background: "#012E25",
     color: "#fff",
-    padding: 40,
+    padding: 30,
     borderRadius: 10,
     display: "flex",
     flexDirection: "column",
   },
   title: {
-    fontSize: 18,
+    // marginTop: 12,
+    paddingTop: 0,
+    fontSize: 12,
   },
   year: {
     marginBottom: 12,
     color: "white",
+    paddingBottom: 12,
+    fontSize: 12,
   },
   actions: {
     padding: 0,
+    paddingBottom: 20,
   },
   images: {
-    width: "30vh",
+    width: "20vh",
   },
 });
 
@@ -38,23 +44,27 @@ function Results(props) {
 
   function SearchResults() {
     return (
-      <CardContent elevation={6}>
+      <CardContent className={classes.content}>
         {props.results.map((result) => {
           const storedMovie = props.nominees.find(
             (stored) => stored.imdbID === result.imdbID
           );
           return (
             <div className="results__movie">
-              <CardMedia image={result.Poster} />
-              <li key={result.id} style={{ listStyle: "none" }}>
-                <Typography className={classes.title}>
-                  {result.Title}
-                </Typography>
-                <Typography className={classes.year}>
-                  ({result.Year})
-                </Typography>
-
-                <CardActions className={classes.actions}>
+              {/* <CardMedia image={result.Poster} /> */}
+              {/* <img src={result.Poster} alt="movie" className={classes.images} /> */}
+              {/* <li key={result.id} style={{ listStyle: "none" }}> */}
+              <Box display="flex" justifyContent="space-between">
+                <Box>
+                  <Typography className={classes.title}>
+                    {result.Title}
+                  </Typography>
+                  <Typography className={classes.year}>
+                    ({result.Year})
+                  </Typography>
+                </Box>
+                {/* <CardActions className={classes.actions}> */}
+                <Box alignContent="center">
                   <Button
                     onClick={() => props.handleNominatedClick(result)}
                     variant="outlined"
@@ -62,14 +72,17 @@ function Results(props) {
                     disabled={
                       storedMovie || props.nominees.length === 5 ? true : false
                     }
-                    style={{ textTransform: "none", borderRadius: "0" }}
+                    style={{
+                      textTransform: "none",
+                      borderRadius: "0",
+                    }}
                   >
                     {storedMovie ? "Nominated" : "Nominate"}
                   </Button>
-                </CardActions>
-                <br />
-                <br />
-              </li>
+                  {/* </CardActions> */}
+                </Box>
+              </Box>
+              {/* </li> */}
             </div>
           );
         })}
@@ -80,13 +93,13 @@ function Results(props) {
   return (
     <Card className={classes.root} variant="outlined">
       {props.searchTerm ? (
-        <Typography variant="h5">Results for "{props.searchTerm}"</Typography>
+        <Typography variant="h6">Results for "{props.searchTerm}"</Typography>
       ) : (
-        <Typography variant="h5">Movies</Typography>
+        <Typography variant="h6">Movies</Typography>
       )}
 
       {props.searchTerm && !SearchResults ? (
-        <Typography variant="h5">No Results Found</Typography>
+        <Typography variant="h6">No Results Found</Typography>
       ) : (
         <SearchResults />
       )}

@@ -7,7 +7,11 @@ function Heading(props) {
     <Grid container item xs={12}>
       <Typography
         variant="h4"
-        style={{ color: "#fff", paddingTop: "10vh", paddingLeft: "15%" }}
+        style={{
+          color: "#fff",
+          paddingTop: "5vh",
+          paddingLeft: "15%",
+        }}
       >
         {props.heading}
       </Typography>

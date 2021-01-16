@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
 import axios from "axios";
+import Banner from "./components/Banner";
 
 const theme = createMuiTheme({
   palette: {
@@ -40,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "15%",
     paddingRight: "15%",
     paddingBottom: "10%",
+    marginRight: 0,
   },
 }));
 
@@ -100,10 +102,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div>
-        <Hero searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <FormRow />
-      </div>
+      <Hero searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      {nominees.length === 5 ? <Banner /> : <h3> </h3>}
+      <FormRow />
     </ThemeProvider>
   );
 }

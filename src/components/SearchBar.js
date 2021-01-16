@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: "5vh",
-    paddingBottom: "15vh",
+    paddingBottom: "10vh",
     paddingLeft: "15%",
     paddingRight: "15%",
     "& label.Mui-focused": {

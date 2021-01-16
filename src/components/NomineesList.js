@@ -6,23 +6,29 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 
+import DeleteIcon from "@material-ui/icons/Delete";
+import { IconButton, Box } from "@material-ui/core";
+
 const useStyles = makeStyles({
   root: {
     minHeight: 775,
     background: "#014C3E",
     color: "#fff",
-    padding: 40,
+    padding: 30,
     borderRadius: 10,
   },
   title: {
-    fontSize: 18,
+    marginTop: 12,
+    fontSize: 12,
   },
   year: {
     marginBottom: 12,
     color: "white",
+    fontSize: 12,
   },
   actions: {
     padding: 0,
+    paddingBottom: 20,
   },
 });
 
@@ -31,29 +37,36 @@ function NomineesList(props) {
 
   return (
     <Card className={classes.root} variant="outlined">
-      <Typography variant="h5">Nominations</Typography>
+      <Typography variant="h6">Nominations</Typography>
 
-      <CardContent>
+      <CardContent className={classes.content}>
         {props.results.map((result) => (
-          <div className="results__movie">
-            <li key={result.id} style={{ listStyle: "none" }}>
+          <div className={classes.content}>
+            <Box display="flex" justifyContent="space-between">
+              {/* <li key={result.id} style={{ listStyle: "none" }}> */}
               {/* <img src={result.Poster} alt="movie" className={classes.images} /> */}
-
-              <Typography className={classes.title}>{result.Title}</Typography>
-              <Typography className={classes.year}>({result.Year})</Typography>
-              <CardActions className={classes.actions}>
-                <Button
-                  onClick={() => props.handleNominatedClick(result)}
-                  variant="outlined"
-                  color="primary"
-                  style={{ textTransform: "none", borderRadius: "0" }}
-                >
-                  Remove
-                </Button>
-              </CardActions>
-              <br />
-              <br />
-            </li>
+              <Box>
+                <Typography className={classes.title}>
+                  {result.Title}
+                </Typography>
+                <Typography className={classes.year}>
+                  ({result.Year})
+                </Typography>
+              </Box>
+              {/* <CardActions className={classes.actions}> */}
+              <Box>
+                <IconButton>
+                  <DeleteIcon
+                    onClick={() => props.handleNominatedClick(result)}
+                    variant="outlined"
+                    color="primary"
+                    style={{ textTransform: "none", borderRadius: "0" }}
+                  />
+                </IconButton>
+              </Box>
+              {/* </CardActions> */}
+              {/* </li> */}
+            </Box>
           </div>
         ))}
       </CardContent>
