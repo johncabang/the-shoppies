@@ -56,13 +56,14 @@ function App() {
 
   useEffect(() => {
     const testURL = `https://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`;
-    axios.get(testURL).then((response) => {
-      if (response.data.Search) {
+    axios
+      .get(testURL)
+      .then((response) => {
         setResults(response.data.Search.slice(0, 10));
-      }
-
-      console.log(response);
-    });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [searchTerm]);
 
   // add nominee
