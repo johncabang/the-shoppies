@@ -5,20 +5,24 @@ import { Box, Button, Card, CardContent, Typography } from "@material-ui/core/";
 const useStyles = makeStyles({
   root: {
     minHeight: 520,
-    background: "linear-gradient(to right bottom, #093028, #237A57)",
-    color: "#fff",
+    // background: "linear-gradient(to right bottom, #093028, #237A57)",
+    background: "rgba(255, 255, 255, 0.8)",
+    backdropFilter: "blur(4px)",
+    color: "#000",
     padding: 30,
     borderRadius: 10,
     display: "flex",
     flexDirection: "column",
+    marginLeft: 20,
+    marginRight: 20,
   },
   title: {
     paddingTop: 0,
-    fontSize: 12,
+    fontSize: 14,
   },
   year: {
     marginBottom: 12,
-    color: "white",
+    color: "#000",
     paddingBottom: 12,
     fontSize: 12,
   },
@@ -47,7 +51,7 @@ function Results(props) {
               <Button
                 onClick={() => props.handleNominatedClick(result)}
                 variant="outlined"
-                color="primary"
+                color="#000"
                 disabled={
                   storedMovie || props.nominees.length === 5 ? true : false
                 }

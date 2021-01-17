@@ -23,27 +23,31 @@ const theme = createMuiTheme({
     },
     secondary: {
       light: "#ff7961",
-      main: "#f44336",
+      main: "#93291E",
       dark: "#ba000d",
       contrastText: "#000",
     },
     action: {
-      disabledBackground: "#000",
-      disabled: "#000",
+      disabledBackground: "#fff",
+      disabled: "#fff",
     },
   },
 });
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "#000",
-    color: "#014C3E",
+    background: "linear-gradient(to right bottom, #000, #434343)",
+    backgroundImage: `url("https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2840&q=80")`,
+    backgroundPosition: "center center",
+    backgroundAttachment: "absolute",
+    color: "#014c3e",
     paddingTop: "3%",
     paddingLeft: "15%",
     paddingRight: "15%",
     paddingBottom: "10%",
     marginRight: 0,
     position: "relative",
+    overflowX: "hidden",
   },
 }));
 
@@ -59,7 +63,9 @@ function App() {
     axios
       .get(testURL)
       .then((response) => {
-        setResults(response.data.Search.slice(0, 10));
+        if (response.data.Search) {
+          setResults(response.data.Search.slice(0, 10));
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -84,7 +90,7 @@ function App() {
 
   function FormRow() {
     return (
-      <Grid container spacing={4} className={classes.root}>
+      <Grid container spacing={0} className={classes.root}>
         <Grid item xs={12} sm={12} md={6}>
           <Results
             searchTerm={searchTerm}

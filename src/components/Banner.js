@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     paddingTop: "2vh",
     paddingBottom: "2vh",
     color: "#fff",
-    background: "linear-gradient(to right bottom, #093028, #237A57)",
+    background: "linear-gradient(to right bottom, #544a7d, #ffd452)",
     borderRadius: 0,
     width: "100%",
     position: "relative",

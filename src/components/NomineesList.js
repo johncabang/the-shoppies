@@ -13,18 +13,22 @@ import {
 const useStyles = makeStyles({
   root: {
     minHeight: 520,
-    background: "linear-gradient(to right bottom, #093028, #237A57)",
-    color: "#fff",
+    // background: "linear-gradient(to right bottom, #093028, #237A57)",
+    background: "rgba(255, 255, 255, 0.8)",
+    backdropFilter: "blur(4px)",
+    color: "#000",
     padding: 30,
     borderRadius: 10,
+    marginLeft: 20,
+    marginRight: 20,
   },
   title: {
     marginTop: 12,
-    fontSize: 12,
+    fontSize: 14,
   },
   year: {
     marginBottom: 12,
-    color: "white",
+    color: "#000",
     fontSize: 12,
   },
   actions: {
@@ -48,7 +52,7 @@ function NomineesList(props) {
             </Box>
             <Box>
               <IconButton onClick={() => props.handleNominatedClick(result)}>
-                <DeleteIcon variant="outlined" color="primary" />
+                <DeleteIcon variant="outlined" color="secondary" />
               </IconButton>
             </Box>
           </Box>

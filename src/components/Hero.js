@@ -6,13 +6,14 @@ function Hero({ searchTerm, setSearchTerm }) {
   return (
     <div
       style={{
-        backgroundImage: `url("https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2840&q=80")`,
+        // backgroundImage: `url("https://images.pexels.com/photos/2098578/pexels-photo-2098578.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")`,
+        backgroundColor: "#000",
         height: "220px",
         backgroundSize: "cover",
-        objectFit: "fil",
+        objectFit: "fill",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, 0.75)",
+        // boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, 0.2)",
       }}
     >
       <Heading heading="the shoppies" />
