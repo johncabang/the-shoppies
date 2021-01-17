@@ -1,7 +1,6 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import { Card, Grid } from "@material-ui/core";
+import { Card, Grid, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
@@ -14,6 +13,9 @@ const useStyles = makeStyles({
     color: "#fff",
     background: "#5faa6f",
     borderRadius: 0,
+    width: "100%",
+    position: "relative",
+    zIndex: 10,
   },
   title: {
     fontSize: 14,

@@ -1,6 +1,5 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import { Grid, Typography } from "@material-ui/core/";
 
 function Heading(props) {
   return (
@@ -11,6 +10,7 @@ function Heading(props) {
           color: "#fff",
           paddingTop: "5vh",
           paddingLeft: "15%",
+          fontWeight: "bold",
         }}
       >
         {props.heading}

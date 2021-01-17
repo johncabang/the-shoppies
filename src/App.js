@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
-
-// import Heading from "./components/Heading";
-// import SearchBar from "./components/SearchBar";
-import Results from "./components/Results";
-import Hero from "./components/Hero";
-import NomineesList from "./components/NomineesList";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  createMuiTheme,
+  makeStyles,
+  ThemeProvider,
+} from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
-import axios from "axios";
 import Banner from "./components/Banner";
+import Hero from "./components/Hero";
+import NomineesList from "./components/NomineesList";
+import Results from "./components/Results";
+
+import axios from "axios";
 
 const theme = createMuiTheme({
   palette: {
@@ -35,13 +36,14 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "#FAF7ED",
+    background: "#000",
     color: "#014C3E",
     paddingTop: "3%",
     paddingLeft: "15%",
     paddingRight: "15%",
     paddingBottom: "10%",
     marginRight: 0,
+    position: "relative",
   },
 }));
 
@@ -56,7 +58,7 @@ function App() {
     const testURL = `http://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`;
     axios.get(testURL).then((response) => {
       if (response.data.Search) {
-        setResults(response.data.Search.slice(0, 8));
+        setResults(response.data.Search.slice(0, 10));
       }
 
       console.log(response);
@@ -102,8 +104,8 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      {nominees.length === 5 && <Banner />}
       <Hero searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      {nominees.length === 5 ? <Banner /> : <h3> </h3>}
       <FormRow />
     </ThemeProvider>
   );

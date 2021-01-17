@@ -1,8 +1,7 @@
 import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
+import { Grid, TextField } from "@material-ui/core/";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,12 +15,14 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
         borderColor: "#fff",
+        boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, 0.5)",
       },
       "&:hover fieldset": {
         borderColor: "#fff",
       },
       "&.Mui-focused fieldset": {
         borderColor: "#fff",
+        color: "#fff",
       },
     },
   },

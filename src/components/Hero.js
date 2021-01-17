@@ -1,6 +1,5 @@
 import React from "react";
 import Heading from "./Heading";
-
 import SearchBar from "./SearchBar";
 
 function Hero({ searchTerm, setSearchTerm }) {
@@ -13,7 +12,6 @@ function Hero({ searchTerm, setSearchTerm }) {
         objectFit: "fil",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        // filter: "blur(3px)",
         boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, 0.75)",
       }}
     >
