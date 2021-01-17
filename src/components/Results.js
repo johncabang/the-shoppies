@@ -6,15 +6,13 @@ const useStyles = makeStyles({
   root: {
     minHeight: 520,
     // background: "linear-gradient(to right bottom, #093028, #237A57)",
-    background: "rgba(255, 255, 255, 0.8)",
-    backdropFilter: "blur(4px)",
+    background: "rgba(255, 255, 255, 0.4)",
+    backdropFilter: "blur(10px)",
     color: "#000",
     padding: 30,
-    borderRadius: 10,
-    display: "flex",
-    flexDirection: "column",
     marginLeft: 20,
     marginRight: 20,
+    borderRadius: 10,
   },
   title: {
     paddingTop: 0,
@@ -51,7 +49,6 @@ function Results(props) {
               <Button
                 onClick={() => props.handleNominatedClick(result)}
                 variant="outlined"
-                color="#000"
                 disabled={
                   storedMovie || props.nominees.length === 5 ? true : false
                 }

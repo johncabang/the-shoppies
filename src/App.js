@@ -28,8 +28,8 @@ const theme = createMuiTheme({
       contrastText: "#000",
     },
     action: {
-      disabledBackground: "#fff",
-      disabled: "#fff",
+      disabledBackground: "#bcbcbc",
+      disabled: "#bcbcbc",
     },
   },
 });
@@ -39,7 +39,8 @@ const useStyles = makeStyles((theme) => ({
     background: "linear-gradient(to right bottom, #000, #434343)",
     backgroundImage: `url("https://images.unsplash.com/photo-1485846234645-a62644f84728?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2840&q=80")`,
     backgroundPosition: "center center",
-    backgroundAttachment: "absolute",
+    backgroundAttachment: "fixed",
+    boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, 0.1)",
     color: "#014c3e",
     paddingTop: "3%",
     paddingLeft: "15%",

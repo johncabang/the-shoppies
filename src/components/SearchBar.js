@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
         borderColor: "#fff",
-        boxShadow: "inset 0 0 0 1000px rgba(0, 0, 0, 0.5)",
       },
       "&:hover fieldset": {
         borderColor: "#fff",

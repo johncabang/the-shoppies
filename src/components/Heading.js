@@ -8,7 +8,7 @@ function Heading(props) {
         variant="h4"
         style={{
           color: "#fff",
-          paddingTop: "5vh",
+          paddingTop: "2vh",
           paddingLeft: "15%",
           fontWeight: "bold",
         }}
