@@ -55,7 +55,7 @@ function App() {
   const [nominees, setNominees] = useState([]);
 
   useEffect(() => {
-    const testURL = `http://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`;
+    const testURL = `https://www.omdbapi.com/?s=${searchTerm}&apikey=${API_KEY}`;
     axios.get(testURL).then((response) => {
       if (response.data.Search) {
         setResults(response.data.Search.slice(0, 10));

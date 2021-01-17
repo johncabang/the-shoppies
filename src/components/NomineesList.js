@@ -13,7 +13,7 @@ import {
 const useStyles = makeStyles({
   root: {
     minHeight: 520,
-    background: "#014C3E",
+    background: "linear-gradient(to right bottom, #093028, #237A57)",
     color: "#fff",
     padding: 30,
     borderRadius: 10,
