@@ -5,13 +5,11 @@ import { Box, Button, Card, CardContent, Typography } from "@material-ui/core/";
 const useStyles = makeStyles({
   root: {
     minHeight: 520,
-    // background: "linear-gradient(to right bottom, #093028, #237A57)",
     background: "rgba(255, 255, 255, 0.4)",
     backdropFilter: "blur(10px)",
     color: "#000",
     padding: 30,
-    marginLeft: 20,
-    marginRight: 20,
+    margin: 20,
     borderRadius: 10,
   },
   title: {

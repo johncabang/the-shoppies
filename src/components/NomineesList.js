@@ -17,8 +17,7 @@ const useStyles = makeStyles({
     backdropFilter: "blur(10px)",
     color: "#000",
     padding: 30,
-    marginLeft: 20,
-    marginRight: 20,
+    margin: 20,
     borderRadius: 10,
   },
   title: {
